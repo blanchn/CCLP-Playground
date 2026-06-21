@@ -1,67 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Mon Application</title>
-  
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background-color: #ffffff;
-    }
-    
-    .app-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-    }
-  </style>
-
-  <!-- CE SCRIPT FORCE LE MODE MOBILE SUR IPAD -->
-  <script>
-    function forceMobileView() {
-      // Détecte si l'appareil est un iPad qui se fait passer pour un Mac
-      const isiPad = navigator.userAgent.includes("Macintosh") && navigator.maxTouchPoints > 1;
-      
-      if (isiPad) {
-        // Supprime la balise viewport par défaut
-        const oldViewport = document.querySelector('meta[name="viewport"]');
-        if (oldViewport) oldViewport.remove();
-        
-        // Crée une nouvelle balise qui force l'iPad à zoomer correctement comme un écran de téléphone
-        const newViewport = document.createElement('meta');
-        newViewport.name = "viewport";
-        newViewport.content = "width=600, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
-        document.head.appendChild(newViewport);
-      }
-    }
-    
-    // Exécute la fonction dès que la page commence à charger
-    forceMobileView();
-    window.addEventListener('DOMContentLoaded', forceMobileView);
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CCLP 2026-12-12</title>
+    <link rel="manifest" href="manifest.json">
+    <style>
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: #ffffff; }
+        iframe { width: 100%; height: 100%; border: none; display: block; }
+    </style>
 </head>
 <body>
-
-  <div class="app-container">
-    <!-- Remplacez l'URL ci-dessous par votre lien /exec de Google Apps Script -->
+    <!-- Votre URL exacte est déjà insérée juste en dessous : -->
     <iframe src="https://script.google.com/macros/s/AKfycbx6snUZqwul1fUv2R4ioRZJ45jrAKkevyf3MlV9MlvZXd2a924rCtZrl_esyoQwW2Pu/exec"></iframe>
-  </div>
-
 </body>
 </html>
