@@ -2,12 +2,10 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <!-- 1. Cette ligne force GitHub à s'ouvrir en mode mobile sur l'iPad -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Mon Application</title>
   
   <style>
-    /* 2. Ce CSS supprime les marges et force l'iFrame à faire la taille exacte de l'écran */
     html, body {
       margin: 0;
       padding: 0;
@@ -23,8 +21,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      /* Force le défilement fluide spécifique à iOS/iPadOS */
-      -webkit-overflow-scrolling: touch; 
+      -webkit-overflow-scrolling: touch;
     }
 
     iframe {
@@ -34,11 +31,35 @@
       display: block;
     }
   </style>
+
+  <!-- CE SCRIPT FORCE LE MODE MOBILE SUR IPAD -->
+  <script>
+    function forceMobileView() {
+      // Détecte si l'appareil est un iPad qui se fait passer pour un Mac
+      const isiPad = navigator.userAgent.includes("Macintosh") && navigator.maxTouchPoints > 1;
+      
+      if (isiPad) {
+        // Supprime la balise viewport par défaut
+        const oldViewport = document.querySelector('meta[name="viewport"]');
+        if (oldViewport) oldViewport.remove();
+        
+        // Crée une nouvelle balise qui force l'iPad à zoomer correctement comme un écran de téléphone
+        const newViewport = document.createElement('meta');
+        newViewport.name = "viewport";
+        newViewport.content = "width=600, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
+        document.head.appendChild(newViewport);
+      }
+    }
+    
+    // Exécute la fonction dès que la page commence à charger
+    forceMobileView();
+    window.addEventListener('DOMContentLoaded', forceMobileView);
+  </script>
 </head>
 <body>
 
   <div class="app-container">
-    <!-- 3. Remplacez cette URL par votre lien /exec de Google Apps Script -->
+    <!-- Remplacez l'URL ci-dessous par votre lien /exec de Google Apps Script -->
     <iframe src="https://script.google.com/macros/s/AKfycbx6snUZqwul1fUv2R4ioRZJ45jrAKkevyf3MlV9MlvZXd2a924rCtZrl_esyoQwW2Pu/exec"></iframe>
   </div>
 
