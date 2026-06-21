@@ -6,12 +6,34 @@
     <title>Mon App Google</title>
     <link rel="manifest" href="manifest.json">
     <style>
-        body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background-color: #ffffff; }
-        iframe { width: 100%; height: 100%; border: none; display: block; }
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+        .iframe-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-overflow-scrolling: touch; /* Force la fluidité du défilement sur iOS */
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+            }
+
     </style>
 </head>
 <body>
-    <!-- Votre URL exacte est déjà insérée juste en dessous : -->
-    <iframe src="https://script.google.com/macros/s/AKfycbx6snUZqwul1fUv2R4ioRZJ45jrAKkevyf3MlV9MlvZXd2a924rCtZrl_esyoQwW2Pu/exec"></iframe>
+    <div class="iframe-container">
+      <iframe src="https://script.google.com/macros/s/AKfycbx6snUZqwul1fUv2R4ioRZJ45jrAKkevyf3MlV9MlvZXd2a924rCtZrl_esyoQwW2Pu/exec"></iframe>
+    </div>
 </body>
 </html>
